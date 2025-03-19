@@ -797,7 +797,31 @@ namespace TechDotNetLib.Lab.Substances.ContentCalculation
             return tmp_content;
         }
 
+        //Пара ALC-Water
+        public static double[] ALC_Water_Content(float _temp, float _press, int configurationCode)
+        {
+            double content;
+            double alcMass;
+            double a0 = -0.071728663;
+            double a1 = 1.2743981;
+            double a2 = 0.001897273;
+            double a3 = 8.29E-06; //0.00000829;
+            
+            // Масовий вміст алкоголю
+            alcMass = (_temp - WspLib.Tsat((float)_press)) * 100.0 / (1670.409 / (5.37229 - Math.Log((float)(_press) * 0.98717) * 0.434294) - 232.959 - WspLib.Tsat((float)_press));
+           
+            // Обмеження 0.0 - 100.0
+            alcMass = Math.Max(0, Math.Min(100.0, alcMass));
 
+            content = a0 + a1 * alcMass - a2 * Math.Pow(alcMass, 2) - a3 * Math.Pow(alcMass, 3);
+            // Об'ємний вміст алкоголю
+            var tmp_content = new double[3];
+
+            tmp_content[0] =  configurationCode % 10 == 1 ? content * 100.0 : Math.Max(0.0, Math.Min(100.0, content)) * 100.0;
+            tmp_content[1] = 10000.0 - tmp_content[0];
+
+            return tmp_content;
+        }
 
     }
 }

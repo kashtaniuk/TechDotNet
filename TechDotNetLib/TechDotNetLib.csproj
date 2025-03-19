@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TechDotNetLib</RootNamespace>
     <AssemblyName>TechDotNetLib</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +62,10 @@
     <Compile Include="ActiveX\TestAX\ITestAX.cs" />
     <Compile Include="ActiveX\TestAX\ITestAXEvents.cs" />
     <Compile Include="Lab\Substances\Acetaldehyde.cs" />
+    <Compile Include="Lab\Substances\HCL.cs" />
+    <Compile Include="Lab\Substances\NaOH.cs" />
+    <Compile Include="Lab\Substances\Diesel.cs" />
+    <Compile Include="Lab\Substances\Alcohol.cs" />
     <Compile Include="Lab\Substances\Acetonitrile.cs" />
     <Compile Include="Lab\Substances\Butadiene_1_2.cs" />
     <Compile Include="Lab\Substances\Butadiene_1_3.cs" />

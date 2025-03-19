@@ -69,6 +69,14 @@ namespace TechDotNetLib.Lab.Substances
             {
                 switch (_components[i])
                 {
+                    //Алкоголь
+                    case "ALC":
+                        sub = new Alcohol(false);      // рідина
+                        break;
+                    case "ALCS":
+                        sub = new Alcohol(true);       // газ
+                        break;
+
                     //Ацетонитрил
                     case "ACA":
                         sub = new Acetaldehyde(false);      //жидкость
@@ -242,7 +250,35 @@ namespace TechDotNetLib.Lab.Substances
                     case "Freezium":
                         sub = new Freezium(false);     //жидкость
                         break;
+                    //Ethanol
+                    case "Ethanol":
+                        sub = new Ethanol(false);     //жидкость
+                        break;
+                    //Addition
+                    case "Addition":
+                        sub = new Ethanol(false);     //жидкость
+                        break;
 
+                    //Diesel
+                    case "Diesel":
+                        sub = new Diesel(false);     // рідина
+                        break;
+
+                    //Sodium hydroxide
+                    case "NaOH":
+                        sub = new NaOH(false);  //жидкость
+                        break;
+                    case "NaOHS":
+                        sub = new NaOH(true);   //газ
+                        break;
+
+                    //Hydrochloric acid
+                    case "HCL":
+                        sub = new HCL(false);  //жидкость
+                        break;
+                    case "HCLS":
+                        sub = new HCL(true);   //газ
+                        break;
 
                     default:
                         //Неизветсное вещество
@@ -328,9 +364,13 @@ namespace TechDotNetLib.Lab.Substances
             Substance component_3 = mixContent.ElementAt(2).Key;
 
 
-            Func<float, float, int, double[]> CalculateContentFunc = null;            
+            Func<float, float, int, double[]> CalculateContentFunc = null;
 
             #region Calculation Content for different Pairs
+            //Пара Алкоголь - Вода
+            if (component_1 is Alcohol && component_2 is Water)
+                CalculateContentFunc = ((t, p, c) => ContentCalc.ALC_Water_Content(t, p, c));
+
             //Пара Ацетонитрил - Вода
             if (component_1 is Acetonitrile && component_2 is Water)            
                 CalculateContentFunc = ((t, p, c) => ContentCalc.ACN_Water_Content(t, p, c));
@@ -372,6 +412,7 @@ namespace TechDotNetLib.Lab.Substances
             //Пара Пропилен-оксид - Ацетальдегид
             if (component_1 is PropyleneOxyde && component_2 is Acetaldehyde)
                 CalculateContentFunc = ((t, p, c) => ContentCalc.PO_ACA_Content(t, p, c));
+
             #endregion
 
 
