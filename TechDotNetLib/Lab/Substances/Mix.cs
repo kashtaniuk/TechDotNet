@@ -279,8 +279,6 @@ namespace TechDotNetLib.Lab.Substances
                     case "HCLS":
                         sub = new HCL(true);   //газ
                         break;
-<<<<<<< HEAD
-=======
 
                     //Methan
                     case "Methan":
@@ -291,7 +289,6 @@ namespace TechDotNetLib.Lab.Substances
                     case "Fusel":
                         sub = new Fusel(false);     // рідина
                         break;
->>>>>>> ThermodynamicCalculates
 
                     default:
                         //Неизветсное вещество

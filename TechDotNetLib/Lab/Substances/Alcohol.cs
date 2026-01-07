@@ -41,44 +41,27 @@ namespace TechDotNetLib.Lab.Substances
 
             double density = 0.0;
 
-<<<<<<< HEAD
-            if (!this.isSteam) //Жидкость
-            {               
-=======
             if (!this.isSteam) // ---- Liquid ----
             {
->>>>>>> ThermodynamicCalculates
                 a0 = 803.07;
                 a1 = -1.0542;
 
                 //y = a5*x^5 + a4*x^4 + a3*x^3 + a2*x^2 + a1*x + a0
                 density = a5 * Math.Pow(temperature, 5) + a4 * Math.Pow(temperature, 4) + a3 * Math.Pow(temperature, 3) + a2 * Math.Pow(temperature, 2) + a1 * temperature + a0;
             }
-<<<<<<< HEAD
-            else //Газ
-=======
             else // ---- Vapor: ideal gas ----
->>>>>>> ThermodynamicCalculates
             {
                 //Плотность газа = P * 10^2/R/T(K)
                 //R = 8.314
                 //T(K) = t(Cels) + 273.15
 
-<<<<<<< HEAD
-                try
-=======
                 try // ---- Vapor: Peng–Robinson EOS ----
->>>>>>> ThermodynamicCalculates
                 {
                     density = pressure * Math.Pow(10, 2) / (R / MolarMass) / (temperature + 273.15);
                 }
                 catch (ArithmeticException)
                 {
-<<<<<<< HEAD
-                    
-=======
 
->>>>>>> ThermodynamicCalculates
                 }
             }
 
@@ -97,17 +80,6 @@ namespace TechDotNetLib.Lab.Substances
 
             double capacity = 0.0;
 
-<<<<<<< HEAD
-            if (!this.isSteam)
-            { //Жидкость
-                //y = a2*x^2 + a1*x + a0
-                a0 = 2.1864307;
-                a1 = 0.0015649999;
-                a2 = 0.0000083021163;                
-            }
-            else
-            {//Газ
-=======
             if (!this.isSteam) // ---- Liquid ----
             { 
                 //y = a2*x^2 + a1*x + a0
@@ -125,20 +97,12 @@ namespace TechDotNetLib.Lab.Substances
             }
             else // ---- Vapor: ideal gas ----
             {
->>>>>>> ThermodynamicCalculates
 
                 a0 = 1.2125728;
                 a1 = 0.0022147106;
                 a2 = 0.0000024869344;
                 a3 = -0.000000025107206;
                 a4 = 5.9195896E-11;
-<<<<<<< HEAD
-                a5 = 0.0;                
-            }
-
-            capacity = a5 * Math.Pow(temperature, 5) + a4 * Math.Pow(temperature, 4) + a3 * Math.Pow(temperature, 3) + a2 * Math.Pow(temperature, 2) + a1 * temperature + a0;
-            return capacity;
-=======
                 a5 = 0.0;
 
                 capacity = a5 * Math.Pow(temperature, 5) + a4 * Math.Pow(temperature, 4) + a3 * Math.Pow(temperature, 3) + a2 * Math.Pow(temperature, 2) + a1 * temperature + a0;
@@ -147,7 +111,6 @@ namespace TechDotNetLib.Lab.Substances
 
             //capacity = a5 * Math.Pow(temperature, 5) + a4 * Math.Pow(temperature, 4) + a3 * Math.Pow(temperature, 3) + a2 * Math.Pow(temperature, 2) + a1 * temperature + a0;
             //return capacity;
->>>>>>> ThermodynamicCalculates
         }
 
         //Метод для определения концентрации вещества в N-компонентной смеси
@@ -159,18 +122,11 @@ namespace TechDotNetLib.Lab.Substances
             double a1 = 1.2743981;
             double a2 = 0.001897273;
             double a3 = 8.29E-06; //0.00000829;
-<<<<<<< HEAD
-            
-            // Масовий вміст алкоголю
-            alcMass = (temperature - WspLib.Tsat((float)pressure)) * 100.0 / (1670.409 / (5.37229 - Math.Log((float)(pressure) * 0.98717) * 0.434294) - 232.959 - WspLib.Tsat((float)pressure));
-            
-=======
 
             // Масовий вміст алкоголю
             //alcMass = (temperature - WspLib.Tsat((float)pressure)) * 100.0 / (1670.409 / (5.37229 - Math.Log((float)(pressure) * 0.98717) * 0.434294) - 232.959 - WspLib.Tsat((float)pressure));
             alcMass = (temperature - TechLib.TSAT((float)pressure)) * 100.0 / (1670.409 / (5.37229 - Math.Log((float)(pressure) * 0.98717) * 0.434294) - 232.959 - TechLib.TSAT((float)pressure));
 
->>>>>>> ThermodynamicCalculates
             // Обмеження 0.0 - 100.0
             alcMass = Math.Max(0, Math.Min(100.0, alcMass));
 
