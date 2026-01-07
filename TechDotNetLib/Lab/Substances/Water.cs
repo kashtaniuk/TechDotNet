@@ -30,25 +30,27 @@ namespace TechDotNetLib.Lab.Substances
         //Метод для определения плотности вещества при 100% концентрации, кг/м3
         public override double GetDensity(float temperature, float pressure)
         {
-            double a0 = 0.0;
-            double a1 = 0.0;
-            double a2 = 0.0;
-            double a3 = 0.0;
-            double a4 = 0.0;
-            double a5 = 0.0;
+            //double a0 = 0.0;
+            //double a1 = 0.0;
+            //double a2 = 0.0;
+            //double a3 = 0.0;
+            //double a4 = 0.0;
+            //double a5 = 0.0;
 
             double density = 0.0;
             if (!this.isSteam) //Жидкость
             {
-                a0 = 1000.3916;
-                a1 = 0.068041205;
-                a2 = -0.0086770695;
-                a3 = 0.000070624106;
-                a4 = -0.00000045396011;
-                a5 = 1.2999754E-09;
+                //a0 = 1000.3916;
+                //a1 = 0.068041205;
+                //a2 = -0.0086770695;
+                //a3 = 0.000070624106;
+                //a4 = -0.00000045396011;
+                //a5 = 1.2999754E-09;
                 //density = a5 * Math.Pow(temperature, 5) + a4 * Math.Pow(temperature, 4) + a3 * Math.Pow(temperature, 3) + a2 * Math.Pow(temperature, 2) + a1 * temperature + a0;
-                
-                density = WspLib.wspDSWT(Math.Max(0, temperature) + 273.15);
+
+                //density = WspLib.wspDSWT(Math.Max(0, temperature) + 273.15);
+                density = 1.0 / TechLib.VW(Math.Max(0, temperature));
+
             }
             else
             {
@@ -60,7 +62,9 @@ namespace TechDotNetLib.Lab.Substances
                 {
                     //density = pressure * Math.Pow(10, 2) / (R / MolarMass) / (temperature + 273.15);
                     //density = WspLib.wspDSST(temperature + 273.15);
-                    density = WspLib.wspDPT(pressure * 100000, temperature + 273.15);
+                    //density = WspLib.wspDPT(pressure * 100000, temperature + 273.15);
+                    //density = 1.0 / TechLib.VS(pressure * 100000, temperature + 273.15);
+                    density = Math.Max(0.0, 1.0 / TechLib.VS(pressure, temperature));
 
                 }
                 catch (ArithmeticException)

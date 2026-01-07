@@ -105,7 +105,8 @@ namespace TechDotNetLib.Lab.Substances
         //Метод для определения концентрации вещества в N-компонентной смеси
         public override double GetContent(float temperature, float pressure)
         {
-            return (temperature - WspLib.Tsat(pressure)) * 100 / (1670.409 / (5.37229 - Math.Log10((pressure) * 0.98717)) - 232.959 - WspLib.Tsat(pressure));
+            //return (temperature - WspLib.Tsat(pressure)) * 100 / (1670.409 / (5.37229 - Math.Log10((pressure) * 0.98717)) - 232.959 - WspLib.Tsat(pressure));
+            return (temperature - TechLib.TSAT(pressure)) * 100 / (1670.409 / (5.37229 - Math.Log10((pressure) * 0.98717)) - 232.959 - TechLib.TSAT(pressure));
         }
 
         //Расчет давления насыщенного пара при заданной температуре, бар, абс.
