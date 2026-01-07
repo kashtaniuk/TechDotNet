@@ -62,11 +62,8 @@
     <Compile Include="ActiveX\TestAX\ITestAX.cs" />
     <Compile Include="ActiveX\TestAX\ITestAXEvents.cs" />
     <Compile Include="Lab\Substances\Acetaldehyde.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Lab\Substances\Fusel.cs" />
     <Compile Include="Lab\Substances\Methan.cs" />
->>>>>>> ThermodynamicCalculates
     <Compile Include="Lab\Substances\HCL.cs" />
     <Compile Include="Lab\Substances\NaOH.cs" />
     <Compile Include="Lab\Substances\Diesel.cs" />
