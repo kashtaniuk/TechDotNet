@@ -83,9 +83,21 @@ namespace TechDotNetLib.Lab.Substances.WaterSteemProLib
             return wspTSP(p * 100_000) - 273.15;
         }
 
+        /// <summary>
+        ///  Удельный объем м³/кг
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [DllImport("okawsp6.dll")]
+        public static extern double wspVPT(double p, double t);
 
-
-        
-
+        /// <summary>
+        ///  Удельный объем пара на линии насыщения м³/кг
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [DllImport("okawsp6.dll")]
+        public static extern double wspVSST(double t);
     }
 }
