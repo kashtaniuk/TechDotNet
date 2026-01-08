@@ -12,7 +12,7 @@ namespace TechDotNetLib.Lab.Substances
 
         private const double molarMass = 46.06804;
 
-        //Молярная масса этфнола
+        //Молярная масса этанола
         public override double MolarMass => molarMass;
 
         //Признак агрегатного состояния этанола в точке измерения
