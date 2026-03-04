@@ -624,6 +624,10 @@ namespace TechDotNetLib.Lab.Substances.ContentCalculation
             return tmp_content;
         }
 
+
+
+
+
         //Пара ПропиленОксид - Вода
         public static double[] PO_Water_Content(float _temp, float _press, int configurationCode)
         {
