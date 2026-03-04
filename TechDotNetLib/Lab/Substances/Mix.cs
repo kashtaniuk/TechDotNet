@@ -285,9 +285,14 @@ namespace TechDotNetLib.Lab.Substances
                         sub = new Methan(false);     // рідина
                         break;
 
-                    //Methan
+                    //Fusel
                     case "Fusel":
                         sub = new Fusel(false);     // рідина
+                        break;
+
+                    //Sug
+                    case "Sug":
+                        sub = new Sug(false);     // рідина
                         break;
 
                     default:
